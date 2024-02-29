@@ -29,133 +29,47 @@
 
 // 3 ФУНКЦИЯ которая будет находить cуммы строк
 
-// int[] GetArrayWithMeans(int[,] array) 
-// {                                                              
+// int[] GetArrayWithMeans(int[,] array)
+// {
 //     int[] sum = new int[array.GetLength(0)];
-//       for (int i = 0; i < array.GetLength(0); i++)
-//       {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
 //         for (int j = 0; j < array.GetLength(1); j++)
 //         {
-//           sum[i] += array[i,j];
+//             sum[i] += array[i, j];
 //         }
-//       }
-//       return sum;
+//     }
+//     return sum;
 // }
 
 // // 4 ФУНКЦИЯ КОТОРАЯ БУДЕТ НАХОДИТЬ ИНДЕКС СТРОКИ С МИНИМАЛЬНЫМИ ЗНАЧЕНИЯМИ
 // int MinIndex(int[] array)
 // {
-//      int minI = 0;
-//       for (int i =0; i < array.Length; i++)
-//       {
-//         if(array[minI] >array[i])
+//     int minI = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[minI] > array[i])
 //         {
-//           minI = i;
+//             minI = i;
 //         }
-//       }
+//     }
 //     //   Console.WriteLine();
-//       return minI;
+//     return minI;
 // }
 
-//                                                                   // 2 ФУНЦИЯ ВЫЗОВ
+// 2 ФУНЦИЯ ВЫЗОВ
 
-//     //PrintMatrix(matr); // это вызвали функцию печать массива; мы ее выше сделали так мы ее вызываем;
-
-
-//                                                                          // 3 ФУНЦИЯ ВЫЗОВ
-
-//  int[] res = GetArrayWithMeans(matr);
-//                                                                               // 4 ФУНЦИЯ ВЫЗОВ                                                              
-//  Console.WriteLine($"{MinIndex(res)}"); 
+//PrintMatrix(matr); // это вызвали функцию печать массива; мы ее выше сделали так мы ее вызываем;
 
 
+// 3 ФУНЦИЯ ВЫЗОВ
+
+// int[] res = GetArrayWithMeans(matr);
+// // 4 ФУНЦИЯ ВЫЗОВ                                                              
+// Console.WriteLine($"{MinIndex(res)}");
 
 
-// // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку
-// // с наименьшей суммой элементов.
-// // Например, задан массив:
-// // 1 4 7 2
-// // 5 9 2 3
-// // 8 4 2 4
-// // 5 2 6 7
-// // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей
-// // суммой элементов: 1 строка
 
-// int Prompt(string message)
-// {
-//   Console.Write(message);
-//   int result = Convert.ToInt32(Console.ReadLine());
-//   return result;
-// }
-
-// int[,] CreateArray(int m, int n)
-// {
-//   int[,] array = new int[m, n];
-//   return array;
-// }
-
-// void PrintArray(int[,] array)
-// {
-//   for (int i = 0; i < array.GetLength(0); i++)
-//   {
-//     for (int j = 0; j < array.GetLength(1); j++)
-//     {
-//       Console.Write($"{array[i, j]} ");
-//     }
-//     Console.WriteLine();
-//   }
-// }
-
-// int[,] FillArrayRandom(int[,] array)
-// {
-//   for (int i = 0; i < array.GetLength(0); i++)
-//   {
-//     for (int j = 0; j < array.GetLength(1); j++)
-//     {
-//       array[i, j] = new Random().Next(1, 10);
-//     }
-//   }
-//   return array;
-// }
-
-// int SumRowArray(int[,] array)
-// {
-//   int[] sumArr = new int[array.GetLength(0)];
-//   Console.WriteLine($"Сумма по строке:");
-//   for (int i = 0; i < array.GetLength(0); i++)
-//   {
-//     for (int j = 0; j < array.GetLength(1); j++)
-//     {
-//       sumArr[i] += array[i, j];
-//     }
-//     Console.WriteLine($"{i + 1} -> {sumArr[i]}");
-//   }
-//   int minSum = sumArr[0];
-//   int minRow = 1;
-//   for (int i = 0; i < array.GetLength(0); i++)
-//   {
-//     if (sumArr[i] < minSum)
-//     {
-//       minSum = sumArr[i];
-//       minRow = i + 1;
-//     }
-//   }
-//   return minRow;
-// }
-
-// int[,] array = CreateArray(Prompt("Введите количество строк: "), Prompt("Введите количество столбцов: "));
-// array = FillArrayRandom(array);
-// PrintArray(array);
-// int row = SumRowArray(array);
-// Console.WriteLine($"Наименьшая сумма в {row} строке.");
-
-// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет: "Позиция по рядам выходит за пределы массива"
-// или
-// "Позиция по колонкам выходит за пределы массива"
-
-// Позиции в массиве считать от единицы.
-
-// В коде, начальные условия:
 
 int[,] numbers = new int[,] {
     {1, 2, 3, 4},
@@ -163,31 +77,43 @@ int[,] numbers = new int[,] {
     {9, 10, 11, 12}
 };
 
-int x = 2; // колонна
-int y = 2; // ряд строка
-//Выводится: 6;
-bool ValidatePosition(int[,] numbers, int x, int y)
+int x = 2;
+int y = 2;
+//Выводится: 6
+static bool ValidatePosition(int[,] array, int x, int y)
 {
-
-    if (y < 0 & y > numbers.GetLength(0))
-    {
-        Console.WriteLine("Позиция по рядам выходит за пределы массива");
-    }
-    if (x < 0 & x > numbers.GetLength(1))
-    {
-        Console.WriteLine("Позиция по колонкам выходит за пределы массива");
-    }
-    else
-    {
-        int element = numbers[x, y];
-    }
-}
-int res = ValidatePosition(numbers);
-
-void PrintResult(int[,] numbers, int x, int y)
+    int rows = array.GetLength(0);
+    int columns = array.GetLength(1);
+    bool rtdp = true;
+    if (x <= 0 && x > array.GetLength(0)) 
 {
-Console.WriteLine(res);
+  Console.WriteLine("Позиция по рядам выходит за пределы массива");
 }
+    if (y <= 0 && y > array.GetLength(1))
+    {
+Console.WriteLine("Позиция по колонкам выходит за пределы массива");
+    }
+    else 
+    {
+        
+    }
+    return rtdp;
+}
+ bool с = ValidatePosition( numbers,  x,  y);
+ Console.WriteLine(с);
+ 
+// Верните элемент из массива по позиции
+// Подсказка № 1
+// Напишите функцию, проверяющую, что позиции входят в границы массива.
 
+// Подсказка № 2
+// Напишите функцию, которая ищет элемент по пощициям внутри массива.
 
+// Подсказка № 3
+// Циклы не нужны, достаточно от позиции отнять 1, это будет индексом.
 
+// Подсказка № 4
+// Вызовите функцию проверки позиций в массиве
+
+// Подсказка № 5
+// Если проверка сработала, вызовите функцию поиска элемента.

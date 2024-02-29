@@ -166,19 +166,28 @@ int[,] numbers = new int[,] {
 int x = 2; // колонна
 int y = 2; // ряд строка
 //Выводится: 6;
+bool ValidatePosition(int[,] numbers, int x, int y)
+{
 
-if (y > numbers.GetLength(0))
-{
-    Console.WriteLine("Позиция по рядам выходит за пределы массива");
+    if (y < 0 & y > numbers.GetLength(0))
+    {
+        Console.WriteLine("Позиция по рядам выходит за пределы массива");
+    }
+    if (x < 0 & x > numbers.GetLength(1))
+    {
+        Console.WriteLine("Позиция по колонкам выходит за пределы массива");
+    }
+    else
+    {
+        int element = numbers[x, y];
+    }
 }
-if (x > numbers.GetLength(1))
+int res = ValidatePosition(numbers);
+
+void PrintResult(int[,] numbers, int x, int y)
 {
-    Console.WriteLine("Позиция по колонкам выходит за пределы массива");
+Console.WriteLine(res);
 }
-else
-{
-//   int sum = 0;
-// sum = numbers;
-    Console.WriteLine($" {numbers[y,x]}");   //($" {numbers[y-1,x-1]}");
-}
+
+
 

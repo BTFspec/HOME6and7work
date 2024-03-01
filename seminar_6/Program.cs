@@ -11,26 +11,26 @@
 
 //[‘a’, ‘b’, ‘c’, ‘d’] => “abcd” 
 
-// string GetStringFromCharArray (char[] array) // ФУНКЦИЯ КОТОРАЯ БЕРЕТ ТИП ДАННЫХ char и возводит в string 
-// {
-//     // array = [‘a’, ‘b’, ‘c’, ‘d’] 
-//     string result = string.Empty; // ""   // Empty создает пустую строчку; 
-//     foreach (char symbol in array) // цикл foreach проходит все символы массива char и закидывает их в переменную symbol
-//     // symbol = 'a', symbol = 'b', symbol = 'c', symbol = 'd'
-//     {
-//         result += symbol;                   // result = result + symbol //изначально result был пустым и потом += symbol туда зашли все символы 
-//         // result = "" + "a"; result = "a"
-//         // result = "a" +"b"; result = "ab"
-//         // result = "ab" + "c"; result = "abc"
-//         // result = "abc" + "d"; result = "abcd"
-//     }
-//     return result; // после прохода циклом foreach обновим переменную result; ч 
-// }
-// // '1' - char,символ одинарные кавычки  "3rr2" - string строка двойные кавычки
-// char[] chars = {'1', 'd', '!', '2', 'f'}; // массив с символами 
-// //Console.WriteLine($"Массив: [{string.Join("; ", chars)}]"); 
-// string res = GetStringFromCharArray(chars);// массив склеиваем в одну большую строчку и потом эту строчку сохраняем в res // ФУНКЦИЯ КОТОРАЯ ИСПОЛЬЗУЕТ МАССИВ ДАСТ СТРОКУ res
-// Console.WriteLine(res); //показать строку res
+string GetStringFromCharArray (char[] array) // ФУНКЦИЯ КОТОРАЯ БЕРЕТ ТИП ДАННЫХ char и возводит в string 
+{
+    // array = [‘a’, ‘b’, ‘c’, ‘d’] 
+    string result = string.Empty; // ""   // Empty создает пустую строчку; 
+    foreach (char symbol in array) // цикл foreach проходит все символы массива char и закидывает их в переменную symbol
+    // symbol = 'a', symbol = 'b', symbol = 'c', symbol = 'd'
+    {
+        result += symbol;                   // result = result + symbol //изначально result был пустым и потом += symbol туда зашли все символы 
+        // result = "" + "a"; result = "a"
+        // result = "a" +"b"; result = "ab"
+        // result = "ab" + "c"; result = "abc"
+        // result = "abc" + "d"; result = "abcd"
+    }
+    return result; // после прохода циклом foreach обновим переменную result; ч 
+}
+// '1' - char,символ одинарные кавычки  "3rr2" - string строка двойные кавычки
+char[] chars = {'1', 'd', '!', '2', 'f'}; // массив с символами 
+//Console.WriteLine($"Массив: [{string.Join("; ", chars)}]"); 
+string res = GetStringFromCharArray(chars);// массив склеиваем в одну большую строчку и потом эту строчку сохраняем в res // ФУНКЦИЯ КОТОРАЯ ИСПОЛЬЗУЕТ МАССИВ ДАСТ СТРОКУ res
+Console.WriteLine(res); //показать строку res
 
                                                                              // ЗАДАЧА 2
 

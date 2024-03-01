@@ -148,8 +148,6 @@ int y = 2;
 static int FindElementByPosition(int[,] array, int x, int y)
 
 {
-   // int rows = array.GetLength(0);
-  //  int columns = array.GetLength(1);
     int element = array[x - 1, y - 1];
     return element;
 }
@@ -183,7 +181,6 @@ static void PrintResult(int[,] numbers, int x, int y)
     }
 }
 
-
 // 2 функция вызов
 ValidatePosition(array, x, y);
 
@@ -192,3 +189,46 @@ FindElementByPosition(array, x, y);
 
 // 3 функция вызов
 PrintResult(array, x, y);
+
+//Задача 3
+// Задайте двумерный массив. Напишите программу, которая поменяет местами первую и последнюю строку массива.
+
+// Начальные условия:
+
+int[,] numbers = new int[,] {
+    {1, 2, 3, 4},
+    {5, 6, 7, 8},
+    {9, 10, 11, 12}
+}; 
+// Выводится:
+
+// 9   10  11  12
+// 5   6   7   8
+// 1   2   3   4
+
+ // Печать массива
+     static void PrintArray(int[,] array)
+    {
+
+    }
+
+
+    // Обмен первой с последней строкой
+     static int[,] SwapFirstLastRows(int[,] array)
+    {
+      
+    }
+
+
+    // Обмен элементами массива
+     static void SwapItems(int[,] array, int i)
+    {
+       
+
+    }
+
+    
+      static void PrintResult(int[,] numbers)
+    {
+        //Напишите свое решение здесь
+    }

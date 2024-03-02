@@ -134,61 +134,61 @@
 //Тело класса будет написано студентом. Класс обязан иметь статический метод PrintResult()
 
 // Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
-int[,] array = new int[,]
-          {
-                {1, 2, 3, 4},
-                {5, 6, 7, 8},
-                {9, 10, 11, 12}
-          };
-int x = 2;
-int y = 2;
+// int[,] array = new int[,]
+//           {
+//                 {1, 2, 3, 4},
+//                 {5, 6, 7, 8},
+//                 {9, 10, 11, 12}
+//           };
+// int x = 2; // ряд
+// int y = 2; //колонна
 
 // Поиск элемента по позициям
 
-static int FindElementByPosition(int[,] array, int x, int y)
+// static int FindElementByPosition(int[,] array, int x, int y)
 
-{
-    int element = array[x - 1, y - 1];
-    return element;
-}
+// {
+//     int element = array[x - 1, y - 1];
+//     return element;
+// }
 
-// Проверка позиций на вхождение в массив
-static bool ValidatePosition(int[,] array, int x, int y)
-{
-   // int rows = array.GetLength(0);
-    //int columns = array.GetLength(1);
-    if (x < 0 || x > array.GetLength(0))
-    {
-        Console.WriteLine($"Позиция по рядам выходит за пределы массива");
-        return false;
-    }
-    else if (y < 0 || y > array.GetLength(0))
-    {
-        Console.WriteLine($"Позиция по колонкам выходит за пределы массива");
-        return false;
-    }
-    return true;
-}
+// // Проверка позиций на вхождение в массив
+// static bool ValidatePosition(int[,] array, int x, int y)
+// {
+//    // int rows = array.GetLength(0);
+//     //int columns = array.GetLength(1);
+//     if (x < 0 || x > array.GetLength(0))
+//     {
+//         Console.WriteLine($"Позиция по рядам выходит за пределы массива");
+//         return false;
+//     }
+//     else if (y < 0 || y > array.GetLength(1))
+//     {
+//         Console.WriteLine($"Позиция по колонкам выходит за пределы массива");
+//         return false;
+//     }
+//     return true;
+// }
 
-static void PrintResult(int[,] numbers, int x, int y)
-{
-    // int rows = numbers.GetLength(0);
-    // int columns = numbers.GetLength(1);
-    if (x >= 0 && x <= numbers.GetLength(0) && y >= 0 && y <= numbers.GetLength(1))
-    {
-        int element = numbers[x - 1, y - 1];
-        Console.WriteLine(element);
-    }
-}
+// static void PrintResult(int[,] numbers, int x, int y)
+// {
+//     // int rows = numbers.GetLength(0);
+//     // int columns = numbers.GetLength(1);
+//     if (x >= 0 && x <= numbers.GetLength(0) && y >= 0 && y <= numbers.GetLength(1))
+//     {
+//         int element = numbers[x - 1, y - 1];
+//         Console.WriteLine(element);
+//     }
+// }
 
-// 2 функция вызов
-ValidatePosition(array, x, y);
+// // 2 функция вызов
+// ValidatePosition(array, x, y);
 
-// 1 функция вызов
-FindElementByPosition(array, x, y);
+// // 1 функция вызов
+// FindElementByPosition(array, x, y);
 
-// 3 функция вызов
-PrintResult(array, x, y);
+// // 3 функция вызов
+// PrintResult(array, x, y);
 
 //Задача 3
 // Задайте двумерный массив. Напишите программу, которая поменяет местами первую и последнюю строку массива.
@@ -199,36 +199,54 @@ int[,] numbers = new int[,] {
     {1, 2, 3, 4},
     {5, 6, 7, 8},
     {9, 10, 11, 12}
-}; 
+};
 // Выводится:
 
 // 9   10  11  12
 // 5   6   7   8
 // 1   2   3   4
 
- // Печать массива
-     static void PrintArray(int[,] array)
+// Печать массива
+static void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++) // стр  //попали в строчку обошли все столбцы; потом след строчка также
     {
-
+        for (int j = 0; j < array.GetLength(1); j++) // столбцы
+        {
+            Console.Write($"{array[i, j]}\t"); // "\t" = 4 пробела 
+        } // Закончили обход 0 строки, идем в 1
+        Console.WriteLine(); // Перенос на новую строчку \\ это чтобы каждая строка массива были раздельно а не на одной строке
     }
+}
 
 
-    // Обмен первой с последней строкой
-     static int[,] SwapFirstLastRows(int[,] array)
+
+
+// Обмен первой с последней строкой
+static int[,] SwapFirstLastRows(int[,] array)  // РАЗВОРАЧИВАЕМ СТРОКИ МАССИВА 1 СТАНОВИТСЯ ТРЕТЬЕЙ
+{
+
+    for (int i = 0; i <= array.GetLength(0) ;  i++)//(int i = array.GetLength(0) -1; i >= 0; i--)
     {
-      
+        SwapItems(array, i);
     }
+    return array;   // ИТОГ РАЗВЕРНУТЫЙ МАССИВ
+}
+ 
+
+// // Обмен элементами массива
+static void SwapItems(int[,] array, int i)
+{
+    int temp = array[2, i];
+    array[2, i] = array[0, i];
+    array[0, i] = temp;
+
+}
 
 
-    // Обмен элементами массива
-     static void SwapItems(int[,] array, int i)
-    {
-       
+static void PrintResult(int[,] numbers)
+{
+    PrintArray(SwapFirstLastRows(numbers));
+}
 
-    }
-
-    
-      static void PrintResult(int[,] numbers)
-    {
-        //Напишите свое решение здесь
-    }
+PrintResult(numbers); // это вызвали функцию печать массива; мы ее выше сделали так мы ее вызываем;

@@ -219,20 +219,16 @@ static void PrintArray(int[,] array)
     }
 }
 
-
-
-
 // Обмен первой с последней строкой
 static int[,] SwapFirstLastRows(int[,] array)  // РАЗВОРАЧИВАЕМ СТРОКИ МАССИВА 1 СТАНОВИТСЯ ТРЕТЬЕЙ
 {
 
-    for (int i = 0; i <= array.GetLength(0) ;  i++)//(int i = array.GetLength(0) -1; i >= 0; i--)
+    for (int i = 0; i <= array.GetLength(0); i++)//(int i = array.GetLength(0) -1; i >= 0; i--)
     {
         SwapItems(array, i);
     }
     return array;   // ИТОГ РАЗВЕРНУТЫЙ МАССИВ
 }
- 
 
 // // Обмен элементами массива
 static void SwapItems(int[,] array, int i)

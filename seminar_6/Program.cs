@@ -39,26 +39,26 @@ Console.WriteLine(res); //показать строку res
 
 // “Hello!” => [‘H’, ‘e’, ‘l’, ‘l’, ‘o’, ‘!’ ]
 
-char[] ConvertStringToCharArray (string str)           // ПИШЕМ char[] Т.К. ПОСЛЕ ФУНКЦИИ ХОТИМ ПОЛУЧИТЬ МАССИВ А ИСПОЛЬЗОВАТЬ БУДЕМ СТРОКУ  str
-{
-    char[] chars = new char[str.Length]; // Создаем массив chars и выделяем ему место [str.Length] столько элементов массива сколько букв в строке string str
-    // "hi" => [,], str.Length = 2, массив на 2 элемента
-    for (int i = 0; i < str.Length; i++)
-    {
-        chars[i] = str[i]; // 1й элемент массива равен пермому символу строки
-        //chars[0] = str[0], chars[0]=h
-        //chars[1] = str[1], chars[1]=i
-        // chars = ['h', 'i']
-    }
-    return chars;  // возвращаем заполненый массив chars строкой str
-    // str = "hi" => [h,i]
-    // "hi" => [str[0], str[1]]
-}
-// “Hello!” => [‘H’, ‘e’, ‘l’, ‘l’, ‘o’, ‘!’ ]
-string str = "Hello world";                     // НАША СТРОКА КОТОРУЮ ФУНКЦИЯ ConvertStringToCharArray БУДЕТ ВОЗВОДИТЬ В МАССИВ
-Console.WriteLine($"Строчка исходная: {str}");  // ВЫВОД СТРОКИ 
-char[] chars = ConvertStringToCharArray(str);   // ВЫЗОВ ФУНКЦИИ ОНА БЕРЕТ СТРОКУ str И ОТДАЕТ МАССИВ chars
-Console.WriteLine($"Массив: [{string.Join("; ", chars)}]"); // ВЫВОД МАССИВЫ 
+// char[] ConvertStringToCharArray (string str)           // ПИШЕМ char[] Т.К. ПОСЛЕ ФУНКЦИИ ХОТИМ ПОЛУЧИТЬ МАССИВ А ИСПОЛЬЗОВАТЬ БУДЕМ СТРОКУ  str
+// {
+//     char[] chars = new char[str.Length]; // Создаем массив chars и выделяем ему место [str.Length] столько элементов массива сколько букв в строке string str
+//     // "hi" => [,], str.Length = 2, массив на 2 элемента
+//     for (int i = 0; i < str.Length; i++)
+//     {
+//         chars[i] = str[i]; // 1й элемент массива равен пермому символу строки
+//         //chars[0] = str[0], chars[0]=h
+//         //chars[1] = str[1], chars[1]=i
+//         // chars = ['h', 'i']
+//     }
+//     return chars;  // возвращаем заполненый массив chars строкой str
+//     // str = "hi" => [h,i]
+//     // "hi" => [str[0], str[1]]
+// }
+// // “Hello!” => [‘H’, ‘e’, ‘l’, ‘l’, ‘o’, ‘!’ ]
+// string str = "Hello world";                     // НАША СТРОКА КОТОРУЮ ФУНКЦИЯ ConvertStringToCharArray БУДЕТ ВОЗВОДИТЬ В МАССИВ
+// Console.WriteLine($"Строчка исходная: {str}");  // ВЫВОД СТРОКИ                                                                      // ТАК ВЫВОДЯТ СТРОКУ
+// char[] chars = ConvertStringToCharArray(str);   // ВЫЗОВ ФУНКЦИИ ОНА БЕРЕТ СТРОКУ str И ОТДАЕТ МАССИВ chars
+// Console.WriteLine($"Массив: [{string.Join("; ", chars)}]"); // ВЫВОД МАССИВЫ                                                        //ТАК ВЫВОДЯТ МАССИВ
 
 
                                                                              // ЗАДАЧА 3
@@ -78,22 +78,29 @@ int GetVovelsCount (string str)
     foreach (char symbol in str) // Получает каждый символ введенной строчки
     {
         // 'a' == a, o, u, e, y, i
-        foreach (char vovel in vovels) // Получаем гласные
+        foreach (char vovel in vovels) // Получаем гласные // ПЕРЕМЕННАЯ vovel ЭТО КАЖДАЯ ГЛАСНАЯ БУКВА В СТРОКЕ vovels
         {
-            if (symbol == vovel) // Нашли гласную букву
+            if (symbol == vovel) // Нашли гласную букву  // ПЕРЕМЕННАЯ symbol ЭТО КАЖДАЯ  БУКВА В СТРОКЕ str //ЕСЛИ БУКВА ИЗ СТРОКИ str ПОДХОДИТ К БУКВАМ ИЗ СТРОКИ vovels
             {
                 vovelsCount++; // vovelsCount = vovelsCount + 1
-                break; // Если нашли гласную, переходим к след.букве
-            }
+                break; // Если нашли гласную, переходим к след.букве// как только нашли гласную в символе из строки str останавливаем проверку и переходим к следуйщей букве
+            }                                        //  +break+      // 1 символ = 1 гласная буква поэтому если цикл foreach нашел ее то проверка переходит на след. символ +break+
         }
     }
     return vovelsCount;
 }
 
 Console.Write("Введите строчку: ");
-string inputString = Console.ReadLine();
-inputString = inputString.ToLower(); // нижний регистр, "HI" -> "hi"
+string? str = Console.ReadLine();
+str = str?.ToLower(); // нижний регистр, "HI" -> "hi"
 // ToUpper() - верхний ("hi" => "HI")
-Console.WriteLine($"В строчке: {inputString} в нижн. регистре : {GetVovelsCount(inputString)} гласных");
-
-
+void MyFunction(string? str) // убираем значение NULL
+{
+    if (str == null)
+    {
+        throw new
+        ArgumentNullException(nameof(str));
+    }
+Console.WriteLine($"В строчке: {str} в нижн. регистре : {GetVovelsCount(str)} гласных");
+}
+MyFunction(str);    // эта функция убирает ошибку warning CS8604: Возможно, аргумент-ссылка, допускающий значение NULL, для параметра "str"

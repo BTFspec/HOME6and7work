@@ -47,65 +47,65 @@
 // “шалаш” => Да
 // “55655” => Да                
 
-Console.Write("Введите строчку: ");
-string? inputiString = Console.ReadLine();
-inputiString = inputiString?.ToLower(); // нижний регистр, "HI" -> "hi"
+// Console.Write("Введите строчку: ");
+// string? inputiString = Console.ReadLine();
+// inputiString = inputiString?.ToLower(); // нижний регистр, "HI" -> "hi"
 
-//string inputiString = "valav";
+// //string inputiString = "valav";
 
-bool Palindrom(string inputiString)
-{
-    for (int i = 0, j = inputiString.Length - 1; i < inputiString.Length; i++, j--)
-    {
+// bool Palindrom(string inputiString)
+// {
+//     for (int i = 0, j = inputiString.Length - 1; i < inputiString.Length; i++, j--)
+//     {
 
-        if (inputiString[i] != inputiString[j])
-        {
-            Console.WriteLine($"NO");
-            return false;
-            // если есть отличие в в зеркале слова то это не палиндром
-        }
+//         if (inputiString[i] != inputiString[j])
+//         {
+//             Console.WriteLine($"NO");
+//             return false;
+//             // если есть отличие в в зеркале слова то это не палиндром
+//         }
 
-    }
-    Console.WriteLine($"YES");
-    return true;
-}
+//     }
+//     Console.WriteLine($"YES");
+//     return true;
+// }
 
 
-//Palindrom(inputiString);
+// //Palindrom(inputiString);
 
-void MyFunction(string? inputiString) // убираем значение NULL
-{
-    if (inputiString == null)
-    {
-        throw new
-        ArgumentNullException(nameof(inputiString));
-    }
-Palindrom(inputiString);
-}
+// void MyFunction(string? inputiString) // убираем значение NULL
+// {
+//     if (inputiString == null)
+//     {
+//         throw new
+//         ArgumentNullException(nameof(inputiString));
+//     }
+// Palindrom(inputiString);
+// }
 
 // MyFunction(inputiString);    // эта функция убирает ошибку warning CS8604: Возможно, аргумент-ссылка, допускающий значение NULL, для параметра "str"
 
 //Задача 4 (необязательная): Обратный порядок слов в строке
 
 
-// // Входная строка со словами, разделенными пробелами
-// string input = "Hello my world";
-// Console.WriteLine(input); 
+// Входная строка со словами, разделенными пробелами
+string input = "Hello my world";
+Console.WriteLine(input); 
 
 
-// // Метод для обращения порядка слов в строке
-//  static string ReverseWords(string str)
-// {
-// // Разделение строки на слова
-// string[] words = str.Split(' ');
-// // Обращение порядка слов
-// Array.Reverse(words);
-// // Соединение слов обратно в строку с пробелами
-// return string.Join(" ", words);
-// }
+// Метод для обращения порядка слов в строке
+ static string ReverseWords(string str)
+{
+// Разделение строки на слова
+string[] words = str.Split(' ');
+// Обращение порядка слов
+Array.Reverse(words);
+// Соединение слов обратно в строку с пробелами
+return string.Join(" ", words);
+}
 
 
-// // Вызов метода для обращения порядка слов в строке
-// string result = ReverseWords(input);
-// // Вывод результата
-// Console.WriteLine(result);
+// Вызов метода для обращения порядка слов в строке
+string result = ReverseWords(input);
+// Вывод результата
+Console.WriteLine(result);

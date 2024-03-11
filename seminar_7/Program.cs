@@ -31,7 +31,28 @@
 
 //Задача 2: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 
+using System;
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        int m = 3;
+        int n = 2;
+        int result = AckermannFunction(m, n);
+        Console.WriteLine($"Ackermann({m}, {n}) = {result}");
+    }
+
+    static int AckermannFunction(int m, int n)
+    {
+        if (m == 0)
+            return n + 1;
+        else if (n == 0)
+            return AckermannFunction(m - 1, 1);
+        else
+            return AckermannFunction(m - 1, AckermannFunction(m, n - 1));
+    }
+}
 
 
 //Задача 3: Задайте произвольный массив. Выведете его элементы, начиная с конца. Использовать рекурсию, не использовать циклы.
@@ -65,19 +86,19 @@
 // char[] chars = ConvertStringToCharArray(str);   // ВЫЗОВ ФУНКЦИИ ОНА БЕРЕТ СТРОКУ str И ОТДАЕТ МАССИВ chars
 // Console.WriteLine($"Массив: [{string.Join("; ", chars)}]"); // ВЫВОД МАССИВЫ                                                        //ТАК ВЫВОДЯТ МАССИВ
 
-int[] chars ={2,3,4,6,7};
-int j = chars.Length - 1;
-void PrintReverArray(int[] chars, int j)
-{
-    //int j = chars.Length - 1;
-   // int i = 0;
-    if (j == 0)
-    {
-        Console.Write(chars[j]);
-        return;
-    }
-Console.Write(chars[j] + " "); // чтобы цифры шли с пробелом
-PrintReverArray(chars[j] + 1 ,chars); // сама рекурсия 
-}
+// //int[] chars ={2,3,4,6,7};
+// int j = chars.Length - 1;
+// void PrintReverArray(char[] chars, int j)
+// {
+//     //int j = chars.Length - 1;
+//    // int i = 0;
+//     if (j < 0)//(j == 0)
+//    // {
+//         //Console.Write($"{chars[j]} ");
+//         return;
+//    // }
+// Console.Write(chars[j] + " "); // чтобы цифры шли с пробелом
+// PrintReverArray(chars, j - 1 ); // сама рекурсия 
+// }
 
-PrintReverArray(chars,j);
+// PrintReverArray(chars,j);
